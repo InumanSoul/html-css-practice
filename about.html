@@ -16,56 +16,63 @@
       padding: 0;
     }
     #title {
-      font-size: 50px;
-      color: greenyellow;
-      text-align: center;
+      font-family: sans-serif;
+      font-size: 90px;
+      color: rgb(232, 232, 232);
       margin-top: 20px;
+      animation: bounce 1s normal ease-in-out;
     }
+
+    @keyframes bounce {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     #second {
-      color: #f80784;
+      color: #ffff;
       text-align: center; 
       font-size: 40px;
       margin-top: -20px;
     }
     #lider {
-      color: #f80784;
+      color: #ffff;
       text-align: center;
       font-size: 40px;
       margin-top: -20px;
     }
-    #descripcion {
-      color: #f80784;
-      text-align: center;
-      font-size: 30px;
-      margin-top: -10px;  
-    }
     #profesionales {
-      color: #f80784;
+      color: #ffff;
       text-align: center;
       font-size: 30px;
       margin-top: -10px;
     }
     #festejando {
-      color: #f80784;
+      color: #ffff;
       text-align: center;
       font-size: 30px;
       margin-top: -10px;
     }
     #porcentaje {
-      color: #f80784;
+      color: #ffff;
       text-align: center;
       font-size: 30px;
       margin-top: -10px;
     }
     #cuenta {
-      color:#f80784;
+      color:#ffff;
       text-align: center;
       font-size: 30px;
       margin-top: -10px;
     }
     #foot {
       font-family: Arial, sans-serif;
-      color: #f80784;
+      color: #ffff;
       text-align: center;
       font-size: 30px;
       margin-top: -10px;
@@ -75,14 +82,16 @@
       margin: 20px auto;
     }
 
-    #container1, #container2, #container3, #container4 {
+    .container {
       padding: 10rem 20px;
       border-radius: 10px;
-      
     }
 
     #container1 {
       background-color: #BA324F;
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+      height: 100dvh;
     }
 
     #container2 {
@@ -99,34 +108,77 @@
       padding: 18px 0;
       text-align: left;
       margin-top: 30px;
-      
+    }
+
+    .heroImage {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      animation: fadeInRight 0.5s ease-in-out;
+    }
+
+    @keyframes fadeInRight {
+      0% {
+        opacity: 0;
+        transform: translateX(-120px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .heroImage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .content {
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #descripcion {
+      font-family: sans-serif;
+      font-weight: 400;
+      color: #ffffffc2;
+      text-align: center;
+      font-size: 30px;
+      margin-top: -10px;  
     }
    </style>
   
 </head>
 <body>
-<div id='container1'>
-  <h1 id="title">
-    Como hacer trampa en fifa 
-  </h1>
-  <p id='second'>
-    By Anderson.
-  </p>
-  <h2 id='lider'>
-    El lider en tramposidades. 
-  </h2>
-   <h4 id="descripcion">
-    Hoy estamos analizando a un jugador el cual no tiene ninguna consideracion a la hora de hacer trampas,
-   en la siguiente imagen vamos a poder observar como esta enojado, por que a pesar de que hizo trampa no logro
-    ganar.
-  </h4>
-  <a href='https://drive.google.com/uc?export=view&id=1Yyx6a7hJ3Hz46zp5RpCDIFNxsky6-Vqk' target= "_blank">
+<section id='container1'>
+  <a href='https://drive.google.com/uc?export=view&id=1Yyx6a7hJ3Hz46zp5RpCDIFNxsky6-Vqk' target= "_blank" class="heroImage">
     <img src='img/loser.png' alt = 'imagen de Google Drive' width = '300'>
   </a>
+  <div class="content">
+    <h1 id="title">
+      Como hacer trampa en fifa 
+    </h1>
+    <p id='second'>
+      By Anderson.
+    </p>
+    <h2 id='lider'>
+      El lider en tramposidades. 
+    </h2>
+    <h4 id="descripcion">
+      Hoy estamos analizando a un jugador el cual no tiene ninguna consideracion a la hora de hacer trampas,
+    en la siguiente imagen vamos a poder observar como esta enojado, por que a pesar de que hizo trampa no logro
+      ganar.
+    </h4>
   </div>
+</section>
 
 
-<div id = 'container2'>
+<div id='container2' class="container">
   <h4 id = 'profesionales'>
     nuestros profesionales estudiaron dia y noche para llegar a una conslusion de como los tramposos aumentaron
      a traves de los años.
@@ -136,8 +188,8 @@
   </video>
 </div>
 
-<div id = 'container3'>
-  <h4 id ='festejando'>
+<div id='container3' class="container">
+  <h4 id='festejando'>
     Pero finalmente, despues de muchos años de analizar el caso, lograron encontrar la respuesta a todos
     sus problemas.
   </h4>
@@ -147,22 +199,22 @@
 </div>
 
 
-<div id = 'container4'>
-  <h4 id = 'porcentaje'>
+<div id='container4' class="container">
+  <h4 id='porcentaje'>
   Se dieron cuenta de que el porcentaje de tramposos aumentaron con el pasar de los años.
     </h4>
-  <video src = 'img/porcentaje aumentado.mp4' width = '500' controls autoplay loop muted playsinline>
+  <video src='img/porcentaje aumentado.mp4' width='500' controls autoplay loop muted playsinline>
   pilin.
   </video>
 </div>
 
 
-  <h4 id = 'cuenta'>
+  <h4 id='cuenta'>
     Pero lo que nadie les comento a los tramposos es que despues de mucho tiempo, si es que hacen trampa van a terminar de la siguiente forma.
   </h4>
 
 
-  <foot id = 'foot'>
+  <foot id='foot'>
     Haz click en el boton para que te lleve a la respuesta.
   
 </body>
